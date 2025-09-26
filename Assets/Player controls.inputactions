@@ -7,24 +7,66 @@
             "id": "42ee5edd-d028-4bcf-8c10-5be435922de1",
             "actions": [
                 {
-                    "name": "Move",
-                    "type": "Value",
-                    "id": "69701824-f536-40ef-ad9a-0b0018ff7fe0",
-                    "expectedControlType": "Vector2",
+                    "name": "Rotate",
+                    "type": "Button",
+                    "id": "ac2cc9cc-57d3-41bd-911d-07b52721cb92",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Thrust",
+                    "type": "Button",
+                    "id": "b79ab49e-eba4-4c78-985b-36d31ea7d6bd",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
                     "name": "",
-                    "id": "00fb801f-229d-43ef-b32c-7ea7ede35396",
-                    "path": "",
+                    "id": "b93047ac-1135-4e09-8cbc-36c34156f995",
+                    "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "761f40d8-4563-4a15-a858-b8dd6697bcc6",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "47d8e4b7-4954-4c5d-9de2-ba2bb82ff852",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Thrust",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fda19aee-cb69-4190-97e6-1c4038411fdc",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Thrust",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
