@@ -1,24 +1,42 @@
 using UnityEngine;
+using UnityEngine.InputSystem; // Necesario para el nuevo sistema
 
-public class Player : MonoBehaviour{
-    float thrustForce = 5f; //fuerza de empuje
-    float rotationSpeed = 120f; // velocidad de rotación
+public class Player : MonoBehaviour{ 
+    [SerializeField] float thrustForce = 5f; // fuerza de empuje
+    [SerializeField] float rotationSpeed = 120f; // velocidad de rotación
+
     Vector2 thrustDirection; // dirección de empuje
     Rigidbody _rigidbody; 
+
+    InputAction rotateAction;
+    InputAction thrustAction;
     void Start(){
-    // rigidbody nos permite aplicar fuerzas en el jugador
-    _rigidbody = GetComponent<Rigidbody>();
+        // rigidbody nos permite aplicar fuerzas en el jugador
+        _rigidbody = GetComponent<Rigidbody>();
+
+        // Obtenemos el PlayerInput del objeto
+        var playerInput = GetComponent<PlayerInput>();
+
+        // Buscamos las acciones que creamos en el asset
+        rotateAction = playerInput.actions["Rotate"];
+        thrustAction = playerInput.actions["Thrust"];
+   
     }
+    
+
     private void FixedUpdate()
     {
-    // obtenemos las pulsaciones de teclado
-    float rotation = Input.GetAxis("Rotate") * rotationSpeed * Time.deltaTime;
-    float thrust = Input.GetAxis("Thrust") * thrustForce;
-    // la dirección de empuje por defecto es .right (el eje X positivo)
-    thrustDirection = transform.right;
-    // rotamos con el eje "Rotate" negativo para que la dirección sea correcta
-    transform.Rotate(Vector3.forward, -rotation);
-    // añadimos la fuerza capturada arriba a la nave del jugador
-    _rigidbody.AddForce(thrust * thrustDirection);
+        // Leemos valores del Input System
+        float rotation = rotateAction.ReadValue<float>() * rotationSpeed * Time.deltaTime;
+        float thrust = thrustAction.ReadValue<float>() * thrustForce;
+    
+        // Dirección de empuje por defecto es el eje X positivo
+        thrustDirection = transform.right;
+
+        // Rotamos la nave
+        transform.Rotate(Vector3.forward, -rotation);
+
+        // Aplicamos la fuerza
+        _rigidbody.AddForce(thrust * thrustDirection);
     }
 }
