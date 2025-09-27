@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem; // Necesario para el nuevo sistema
 
 public class Player : MonoBehaviour{ 
-    [SerializeField] float thrustForce = 5f; // fuerza de empuje
+    [SerializeField] float thrustForce = 2f; // fuerza de empuje
     [SerializeField] float rotationSpeed = 120f; // velocidad de rotación
 
     Vector2 thrustDirection; // dirección de empuje
