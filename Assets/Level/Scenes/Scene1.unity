@@ -119,6 +119,52 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &257297255
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 257297256}
+  - component: {fileID: 257297257}
+  m_Layer: 0
+  m_Name: Pool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &257297256
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257297255}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 26.56, y: -0.49894, z: 21.19221}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &257297257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257297255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b985868cf53893f42af4f71d87f7fca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Pool
+  Bullet: {fileID: 665567070649777948, guid: f75e4c8cd6eb5184bb38c6c4f0d7decc, type: 3}
+  initialPoolSize: 5
 --- !u!1 &967301523
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,6 +271,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1052600075}
+  - component: {fileID: 1052600076}
   m_Layer: 0
   m_Name: BulletSpawner
   m_TagString: Untagged
@@ -247,6 +294,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1491257674}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1052600076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052600074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23f89289f0aa3a64d940762d0ded05ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BulletSpawner
 --- !u!1 &1491257672
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,6 +321,7 @@ GameObject:
   - component: {fileID: 1491257675}
   - component: {fileID: 1491257678}
   - component: {fileID: 1491257679}
+  - component: {fileID: 1491257680}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Player
@@ -357,8 +417,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   thrustForce: 5
   rotationSpeed: 120
-  gun: {fileID: 1052600074}
-  bulletPrefab: {fileID: 665567070649777948, guid: f75e4c8cd6eb5184bb38c6c4f0d7decc, type: 3}
 --- !u!136 &1491257676
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -451,6 +509,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a53ce2e5a2a6b404eb23307fc0d53a56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraWrapp
+--- !u!114 &1491257680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491257672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0851b978c49e28a4cbe4bb24a2a40fc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerShooting
+  spawner: {fileID: 1052600076}
+  fireRate: 0.15
 --- !u!1 &1899224261
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,3 +735,4 @@ SceneRoots:
   - {fileID: 967301525}
   - {fileID: 2054090940}
   - {fileID: 1491257674}
+  - {fileID: 257297256}

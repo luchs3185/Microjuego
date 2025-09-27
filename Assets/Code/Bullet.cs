@@ -1,19 +1,33 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class Bullet : MonoBehaviour
 {
-    public float speed = 10f;
-    public float maxLifetinme = 3f; //tiempo de vida maximo de la bala para ahorrar recursos
-                                    
-    public Vector3 targetVector; //la direccion de la nave dirige la direccion de la bala
+    public float speed = 20f;
+    public float lifeTime = 2f;
 
-    void Start()
+    private Rigidbody rb;
+    private float timer;
+
+    void Awake()
     {
-        Destroy(gameObject, maxLifetinme); //destruye la bala despues de 3 segundos
+        rb = GetComponent<Rigidbody>();
+    }
+
+    // Este método debe ser público
+    public void Launch()
+    {
+        rb.linearVelocity = transform.right * speed; 
+        timer = lifeTime;
     }
 
     void Update()
-    { 
-        transform.Translate(targetVector * speed * Time.deltaTime); //mueve la bala en la direccion de la nave 
-    }   
+    {
+        timer -= Time.deltaTime;
+        if (timer <= 0f)
+        {
+            Pool.Instance.ReturnBullet(gameObject);
+        }
+    }
+
 }
