@@ -15,13 +15,13 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        // rigidbody nos permite aplicar fuerzas en el jugador
+        //para fuerzas en el jugador
         _rigidbody = GetComponent<Rigidbody>();
 
-        // Obtenemos el PlayerInput del objeto
+        //Obtenemos el PlayerInput del objeto
         var playerInput = GetComponent<PlayerInput>();
 
-        // Buscamos las acciones que creamos en el asset
+        //Buscamos las acciones que creamos en el asset
         rotateAction = playerInput.actions["Rotate"];
         thrustAction = playerInput.actions["Thrust"];
    

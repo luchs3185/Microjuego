@@ -26,7 +26,7 @@ public class Pool : MonoBehaviour
     {
         for (int i = 0; i < initialPoolSize; i++)
         {
-            GameObject obj = Instantiate(Bullet, transform); // hijo del pool container
+            GameObject obj = Instantiate(Bullet, transform); //hijo del pool container
             obj.SetActive(false);
             pool.Enqueue(obj);
         }
@@ -42,17 +42,15 @@ public class Pool : MonoBehaviour
         }
         else
         {
-            return null; // o podrías devolver un objeto reutilizado (estrategia alternativa)
+            return null;
         }
 
-        // Lo sacamos de la jerarquía del pool para que no aparezca "dentro" del contenedor
         obj.transform.SetParent(null);
         return obj;
     }
 
     public void ReturnBullet(GameObject obj)
     {
-        // Reset básico antes de guardar
         var rb = obj.GetComponent<Rigidbody>();
         if (rb != null)
         {
@@ -60,11 +58,8 @@ public class Pool : MonoBehaviour
             rb.angularVelocity = Vector3.zero;
         }
 
-        // opcional: reset transform (si quieres)
-        // obj.transform.position = transform.position;
-
         obj.SetActive(false);
-        obj.transform.SetParent(transform); // lo volvemos a poner bajo el contenedor del pool
+        obj.transform.SetParent(transform);
         pool.Enqueue(obj);
     }
 }
