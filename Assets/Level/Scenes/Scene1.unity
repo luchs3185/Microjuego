@@ -534,6 +534,7 @@ GameObject:
   - component: {fileID: 1899224264}
   - component: {fileID: 1899224263}
   - component: {fileID: 1899224262}
+  - component: {fileID: 1899224265}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -615,6 +616,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1899224265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899224261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e15edc05c93f87428df05721c81dad5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MeteorSpawner
+  asteroidPrefab: {fileID: 7542955651994423166, guid: 6b5cfd14209a4224682bf903b6f121f2, type: 3}
+  spawnPerMinute: 30
+  spawnRateIncrement: 1
+  xlimit: 18
+  maxLifeTime: 4
 --- !u!1 &2054090936
 GameObject:
   m_ObjectHideFlags: 0

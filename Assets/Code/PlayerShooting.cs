@@ -14,7 +14,7 @@ public class PlayerShooting : MonoBehaviour
     void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
-        // "Fire" debe ser exactamente el nombre de la acción en tu asset
+    
         fireAction = playerInput.actions["Fire"];
     }
 
