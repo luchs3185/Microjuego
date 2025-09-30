@@ -4,16 +4,16 @@ using TMPro;
 public class Bullet : MonoBehaviour
 {
     public float speed = 20f;
-    public float lifeTime = 2f;
+    public float lifeTime = 2f; //tiempo de vida de la bala
     private Rigidbody rb;
     private float timer;
 
-    void Awake()
+    void Awake() //aqui se guarda el rigidbody
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    public void Launch()
+    public void Launch() //al disparar la bala, se le da velocidad a la derecha
     {
         rb.linearVelocity = transform.right * speed; 
         timer = lifeTime;
@@ -30,10 +30,11 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy") //cuando colisiona con asteroide
         {
-            Destroy(other.gameObject);
+            Destroy(other.gameObject); //destruye el asteroide
             IncreaseScore();
+            Pool.Instance.ReturnBullet(gameObject); //recicla la bala
         }
     }
 
